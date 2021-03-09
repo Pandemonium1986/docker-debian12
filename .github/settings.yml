@@ -1,16 +1,16 @@
 ---
 repository:
-  name:                                  "template"
-  description:                           "Simple template with everything I need to start a repository"
+  name:                                  "docker-debian11"
+  description:                           "Docker debian 11 base image"
   # homepage:                            https://example.github.io/
-  topics:                                "automation, template"
+  topics:                                "debian, docker, testing"
   private:                               false
   has_issues:                            true
   has_projects:                          true
   has_wiki:                              false
   has_downloads:                         true
   default_branch:                        main
-  is_template:                           true
+  is_template:                           false
   allow_squash_merge:                    true
   allow_merge_commit:                    true
   allow_rebase_merge:                    true

@@ -19,13 +19,13 @@ repos:
 #   - id:        ansible-lint
 - repo:          local
   hooks:
-  # - id:          ansible-lint
-  #   name:        Ansible lint
-  #   entry:       ansible-lint
+  # - id:        ansible-lint
+  #   name:      Ansible lint
+  #   entry:     ansible-lint
   #   description: This hook runs the local installation of ansible-lint.
-  #   language:    python
-  #   types:       [ file, yaml ]
-  #   files:       \.(yaml|yml)$
+  #   language:  python
+  #   types:     [ file, yaml ]
+  #   files:     \.(yaml|yml)$
   - id:          eslint
     name:        Editor Config lint
     entry:       eclint check
@@ -45,10 +45,16 @@ repos:
     description: This hook runs the local installation of yamllint.
     language:    python
     types:       [ file, yaml ]
-  # - id:          splitsh-lite
-  #   name:        Splitsh-lite hook
-  #   entry:       ./.bin/split.sh
+  - id:          hadolint
+    name:        Dockerfiles lint
+    entry:       hadolint
+    description: This hook runs the local installation of hadolint.
+    language:    system
+    files:       Dockerfile
+  # - id:        splitsh-lite
+  #   name:      Splitsh-lite hook
+  #   entry:     ./.bin/split.sh
   #   description: This hook runs split.sh to split the monorepo to manyrepo
-  #   language:    script
-  #   stages:      [ push ]
-  #   verbose:     true
+  #   language:  script
+  #   stages:    [ push ]
+  #   verbose:   true
