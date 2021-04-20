@@ -13,8 +13,8 @@ updates:
       - "dependencies"
     assignees:
       - "Pandemonium1986"
-    commit-message:
-      prefix: "dependabot-action"
+    # commit-message:
+    #   prefix: "dependabot-action"
 
   # Maintain dependencies for Docker
   - package-ecosystem: "docker"
@@ -28,5 +28,5 @@ updates:
       - "dependencies"
     assignees:
       - "Pandemonium1986"
-    commit-message:
-      prefix: "dependabot-docker"
+    # commit-message:
+    #   prefix: "dependabot-docker"
