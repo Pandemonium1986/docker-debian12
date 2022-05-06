@@ -61,7 +61,7 @@ jobs:
           password:            ${{ secrets.GITHUB_TOKEN }}
       - name:                  "Docker => Set up Docker Buildx"
         id:                    buildx
-        uses:                  docker/setup-buildx-action@v1
+        uses:                  docker/setup-buildx-action@v2
         with:
           version:             latest
       - name:                  "Docker => Build and push"
