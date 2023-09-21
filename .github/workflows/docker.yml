@@ -22,7 +22,7 @@ jobs:
     runs-on:                   ubuntu-latest
     steps:
     - name:                    "Init => Run checkout@v2"
-      uses:                    actions/checkout@v2
+      uses:                    actions/checkout@v4
       with:
         fetch-depth:           0
     - name:                    "Prepare => Get the current branch"
@@ -43,7 +43,7 @@ jobs:
       - lint
     steps:
       - name:                  "Init => Checkout"
-        uses:                  actions/checkout@v2
+        uses:                  actions/checkout@v4
       - name:                  "Prepare => Docker meta"
         id:                    docker_meta
         uses:                  docker/metadata-action@v3
