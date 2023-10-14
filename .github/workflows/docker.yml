@@ -39,6 +39,9 @@ jobs:
   docker:
     name:                      "Docker => Build and Push"
     runs-on:                   ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
     needs:
       - lint
     steps:
