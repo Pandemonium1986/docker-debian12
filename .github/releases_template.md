@@ -1,13 +1,13 @@
 # Changes
 
-#### Major Changes
+## Major Changes
 
--   N/A
+- N/A
 
-#### Minor Changes
+## Minor Changes
 
--   N/A
+- N/A
 
-# Bug fixes
+## Bugfixes
 
--   N/A
+- N/A
