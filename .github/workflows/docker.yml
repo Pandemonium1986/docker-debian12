@@ -1,5 +1,5 @@
 ---
-name: "docker"
+name: "Docker Workflow"
 
 on:
   schedule:
@@ -12,60 +12,16 @@ on:
       - "*"
   workflow_dispatch:
 
-env:
-  DOCKER_USER: "pandemonium1986"
-  DOCKER_IMAGE: "debian11"
-
 jobs:
-  called-linter:
-    permissions:
-      contents: read
-      packages: read
-      statuses: write
-    name: "Called: GitHub Super Linter"
-    uses: pandemonium1986/.github/.github/workflows/called-linter.yml@main
-    secrets:
-      github-token: ${{ secrets.GITHUB_TOKEN }}
-  docker:
-    name: "Docker => Build and Push"
-    runs-on: ubuntu-latest
+  called-docker:
     permissions:
       contents: read
       packages: write
-    needs:
-      - called-linter
-    steps:
-      - name: "Init => Checkout"
-        uses: actions/checkout@v4
-      - name: "Prepare => Docker meta"
-        id: docker_meta
-        uses: docker/metadata-action@v5.0.0
-        with:
-          images: ghcr.io/${{ env.DOCKER_USER }}/${{ env.DOCKER_IMAGE }}
-          tags: |
-            type=schedule,pattern=nightly
-            type=ref,event=branch
-            type=semver,pattern={{ version }}
-      - name: "Docker => Login to GitHub Container Registry"
-        uses: docker/login-action@v3
-        with:
-          registry: ghcr.io
-          username: ${{ github.repository_owner }}
-          password: ${{ secrets.GITHUB_TOKEN }}
-      - name: "Docker => Set up Docker Buildx"
-        id: buildx
-        uses: docker/setup-buildx-action@v3
-        with:
-          version: latest
-      - name: "Docker => Build and push"
-        id: docker_build
-        uses: docker/build-push-action@v5
-        with:
-          context: .
-          file: ./Dockerfile
-          platforms: linux/amd64
-          push: true
-          tags: ${{ steps.docker_meta.outputs.tags }}
-          labels: ${{ steps.docker_meta.outputs.labels }}
-      - name: "Docker => Image digest"
-        run: echo ${{ steps.docker_build.outputs.digest }}
+      statuses: write
+    name: "Called: Docker Build and Push Workflow"
+    uses: pandemonium1986/.github/.github/workflows/called-docker.yml@main
+    with:
+      docker-user: ${{ github.repository_owner }}
+      docker-image: ${{ github.event.repository.name }}
+    secrets:
+      github-token: ${{ secrets.GITHUB_TOKEN }}
