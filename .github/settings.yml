@@ -1,7 +1,7 @@
 ---
 repository:
   name: "docker-debian12"
-  description: "Docker debian 12 base image"
+  description: "Docker debian 12 systemd image"
   # homepage:                            https://example.github.io/
   topics: "debian, docker, testing"
   private: false
