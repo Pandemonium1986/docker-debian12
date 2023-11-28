@@ -1,8 +1,8 @@
 # Debian 12 systemd
 
-![Github workflow status](https://github.com/Pandemonium1986/docker-debian12/workflows/docker/badge.svg)
+[![Github workflow status](https://github.com/Pandemonium1986/docker-debian12/actions/workflows/docker.yml/badge.svg?branch=main)](https://github.com/Pandemonium1986/docker-debian12/actions/workflows/docker.yml)
 ![release](https://img.shields.io/github/release/Pandemonium1986/docker-debian12)
-![release-date](https://img.shields.io/github/release-date/Pandemonium1986/docker-debian12)
+![release-datelicense](https://img.shields.io/github/release-date/Pandemonium1986/docker-debian12)
 ![license](https://img.shields.io/github/license/Pandemonium1986/docker-debian12)
 [![pre-commit](https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit&logoColor=white)](https://github.com/pre-commit/pre-commit)
 
