@@ -3,58 +3,44 @@
 # See https://pre-commit.com/hooks.html for more hooks
 default_stages:
   - commit
+minimum_pre_commit_version: 2.1.5
+fail_fast: false
 repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v3.2.0
+    rev: v4.4.0
     hooks:
-      - id: trailing-whitespace
-        stages: [commit]
-      - id: end-of-file-fixer
-        stages: [commit]
-      - id: check-yaml
       - id: check-added-large-files
-  # - repo:        https://github.com/ansible/ansible-lint
-  #   rev:         v4.3.7
-  #   hooks:
-  #   - id:        ansible-lint
-  - repo: local
+        args: ["--maxkb=10000"]
+      - id: check-case-conflict
+      - id: check-executables-have-shebangs
+      - id: check-json
+      - id: check-merge-conflict
+      - id: check-shebang-scripts-are-executable
+      - id: check-yaml
+      - id: detect-private-key
+      - id: trailing-whitespace
+        args: [--markdown-linebreak-ext=md]
+      - id: end-of-file-fixer
+  - repo: https://github.com/jorisroovers/gitlint
+    rev: v0.19.1
     hooks:
-      # - id:        ansible-lint
-      #   name:      Ansible lint
-      #   entry:     ansible-lint
-      #   description: This hook runs the local installation of ansible-lint.
-      #   language:  python
-      #   types:     [ file, yaml ]
-      #   files:     \.(yaml|yml)$
-      - id: eslint
-        name: Editor Config lint
-        entry: eclint check
-        description: This hook runs the local installation of eclint.
-        language: node
-        types: [file]
       - id: gitlint
-        name: Git lint
-        entry: gitlint
-        description: This hook runs the local installation of gitlint.
-        language: python
         stages: [commit-msg]
         args: [--staged, --msg-filename]
+  - repo: https://github.com/hadolint/hadolint
+    rev: v2.12.0
+    hooks:
+      - id: hadolint-docker
+  - repo: https://github.com/adrienverge/yamllint.git
+    rev: v1.29.0
+    hooks:
       - id: yamllint
-        name: Yaml lint
-        entry: yamllint
-        description: This hook runs the local installation of yamllint.
-        language: python
-        types: [file, yaml]
-      - id: hadolint
-        name: Dockerfiles lint
-        entry: hadolint
-        description: This hook runs the local installation of hadolint.
-        language: system
-        files: Dockerfile
-    # - id:        splitsh-lite
-    #   name:      Splitsh-lite hook
-    #   entry:     ./.bin/split.sh
-    #   description: This hook runs split.sh to split the monorepo to manyrepo
-    #   language:  script
-    #   stages:    [ push ]
-    #   verbose:   true
+        args: [-c=./.yamllint]
+  - repo: https://github.com/Lucas-C/pre-commit-hooks-nodejs
+    rev: v1.1.2
+    hooks:
+      - id: htmlhint
+  - repo: https://github.com/igorshubovych/markdownlint-cli
+    rev: v0.33.0
+    hooks:
+      - id: markdownlint
