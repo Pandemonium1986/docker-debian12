@@ -1,4 +1,4 @@
-# Debian 12 Systemd
+# Debian 12 systemd
 
 ![Github workflow status](https://github.com/Pandemonium1986/docker-debian12/workflows/docker/badge.svg)
 ![release](https://img.shields.io/github/release/Pandemonium1986/docker-debian12)
