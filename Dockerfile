@@ -1,7 +1,7 @@
-FROM debian:bullseye
+FROM debian:bookworm
 
 LABEL maintainer="Michael Maffait"
-LABEL org.opencontainers.image.source="https://github.com/Pandemonium1986/docker-debian11"
+LABEL org.opencontainers.image.source="https://github.com/Pandemonium1986/docker-debian12"
 
 ENV DEBIAN_FRONTEND noninteractive
 
