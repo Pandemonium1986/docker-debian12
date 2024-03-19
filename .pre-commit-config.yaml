@@ -39,12 +39,12 @@ repos:
         stages: [commit-msg]
         args: [--staged, --msg-filename]
   - repo: https://github.com/hadolint/hadolint
-    rev: v2.12.0
+    rev: v2.12.1-beta
     hooks:
       - id: hadolint-docker
         name: "hadolint: lint docker files"
   - repo: https://github.com/adrienverge/yamllint.git
-    rev: v1.33.0
+    rev: v1.35.1
     hooks:
       - id: yamllint
         name: "yamllint: lint yaml files"
@@ -55,7 +55,7 @@ repos:
       - id: htmlhint
         name: "htmlhint: lint html files"
   - repo: https://github.com/igorshubovych/markdownlint-cli
-    rev: v0.38.0
+    rev: v0.39.0
     hooks:
       - id: markdownlint
         name: "markdownlint: lint md files"
