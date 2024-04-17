@@ -7,7 +7,7 @@ minimum_pre_commit_version: 2.1.5
 fail_fast: false
 repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v4.5.0
+    rev: v4.6.0
     hooks:
       - id: check-added-large-files
         name: "pre-commit: check-added-large-files"
